@@ -8,9 +8,7 @@ function rename(randPart,fileName,res) {
   fs.rename(`/tmp/upload_${randPart}`, fileName, function(err) {
     if ( err ) {
       console.log('ERROR: ' + err);
-      res.status(400).json({
-        message: JSON.stringify(err)
-      });
+      errRes(err,res);
     } else {
       console.log('renamed')
     };

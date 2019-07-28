@@ -29,8 +29,13 @@ replay legitimate transactions.
 ###Addressed:
 1- Up to date dependencies: Majority of attack vectors go through out of date dependencies, so it's important to keep all dependencies up to date as time goes
 2- Body, querystring, URL and HTTP headers and the content posted are all checked for possible threats.
-3- Whitelisting domains - this closes a massive surface for attack
-
+3- Whitelisting domains - this closes a massive surface for attack, cors headers whitelisted to localhost:3000 (this'd be our domain on live obviously.), I'd need to whitelist other services like automation, message queues, websockets etc if I built those later.
+4- Content security policy added for node app (not for webpack for the react app, I'd do that)
+5- Helmet was used to close a lot of security holes
+6- RateLimit plugin was used to limit requests coming in by client IPs so we don't get DOS DDOS attacked too easily
+7- Joi package is used to make sure a lot of 
+8- Search by file name functionality is debounced to make sure we don't flood the server when user is typing
+9- When searching for files to return on nodejs side, I used indexof instead of regex to make sure I don't take the server down.
 
 ###Not addressed:
 1- Authentication and Authorization, now everyone can delete everyone else's file.
@@ -39,6 +44,8 @@ replay legitimate transactions.
 4- DDOS attacks can happen, setting up cloudflare would prevent that as well as other types of attacks. (although express-rate-limit is installed to limit IPs to certain requests, attacks can happen with multi-vector and morphing abilities)
 5- Services are not running part of a Virtual Private Cloud/Network, which means they're open to public www, with no security groups, firewalls or protection.
 6- files uploaded are not being encrypted while stored
+7- Type checks may fail on race condition depending on filesize - this is because I invested time to build file uploads with formidable IncomingForm, and the event handling is quite terrible whereas when fileBegin event is thrown and I do validation with joi, I cannot virtually stop transmission at the time and file may endup uploaded. I needed more time to switch to multer to handle it better but ran out of time, hence this needs to be improved, I wrote a quick "mark files for deletion if it fails validation" however it is a big security hole that I wouldn't repeat again.
+
 
 ## Improvements
 // What could be added to the app / API?
@@ -56,6 +63,14 @@ replay legitimate transactions.
 12- Capcha check if one ip is trying too many requests
 13- Data integrity checks - send with checksum, confirm integrity
 14- Ensuring data is strongly typed, correct syntax, within length boundaries, contains only permitted characters, or that numbers are correctly signed and within range boundaries
+15- Write a proper error handling HOC for cleaner code.
+16- React app's using material ui and is kind of pretty but especially with resizing etc I would've done a lot better job given the time and if I didn't have to worry about other things
+17- Unit tests on react app - this wasn't entirely built with a TDD approach due to time limit and panic, need to improve on that 
+18- Flow was used but it became a bit annoying to fight with types rather than writing core functionality so it is kinda broken now.
+19- Both apps were written with docker, however adding and removing things both environments broke so I ended up running them individually, sorry about that, initially I wrote both to run on docker-compose on single command, later one broke and I ran them separately, later both of them started hanging, instead of diving deep to fix them I opted out and run node app with sudo pm2 (as I use local tmp folder to save files to) and react app with good old react-scripts
+20- I would use validation and more feedback for frontend too but i ran out of time (not that it matters from security perspective too much but UX perspective, anything on a browser can be fiddled with, it's the API that needs to be strong)
+21- Some minor UI bugs such as when filtered deleting causes all files to be loaded, it should be only filtered ones
+22- Need to break down large components more into pure/memoized functions within view files, did not have time to do this, paired with lacking TDD, if I did this properly I would not have a backend to query
 
 ## Libraries
 // What external libraries have you used and why?
@@ -144,3 +159,4 @@ No querystring or path params accepted.
 ---
 ## Other notes
 // Anything else you want to mention
+Tough exercise, well thought out, did get me to sweat nicely. Biggest issue was not using redux

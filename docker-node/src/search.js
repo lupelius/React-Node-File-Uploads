@@ -2,6 +2,7 @@
 const fs = require('fs');
 const Joi = require('@hapi/joi');
 const tempFolder = '/tmp';
+const errRes = require('./err.js');
 
 module.exports = (req, res) => {
   if (req.params.search) {
@@ -11,9 +12,7 @@ module.exports = (req, res) => {
     
     Joi.validate({ search: req.params.search }, schema, function (err, value) {
       if (err) {
-        res.status(400).json({
-          message: "Search param must be a string"
-        });
+        errRes(err,res);
       } else {
         const arr = fs.readdirSync(tempFolder);
         const responseArr = [];
@@ -35,7 +34,8 @@ module.exports = (req, res) => {
     });
   } else {
     res.status(400).json({
-      message: `Please send search a parameter.`
+      name: "Error",
+      message: "Please send search a parameter."
     });
   }
 };
