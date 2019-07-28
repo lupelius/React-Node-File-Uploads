@@ -1,0 +1,37 @@
+.FileCard{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11), 0 5px 15px 0 rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+.SizeAndButton {
+  flex-direction: row;
+}
+.Size {
+  font-size:16px;
+}
+.Mainfiles {
+  font-size: 22px !important;
+  line-height: 24px !important;
+  height: 24px !important;
+  text-align: left;
+  margin-bottom: 25px !important;
+  width: 240px !important;
+}
+
+.Button {
+  align-self: flex-end;
+}
+
+@media only screen and (max-width: 600px) {
+  .top {
+    flex-direction: column-reverse;
+  }
+}
+
+.top {
+  padding: 24;
+}
