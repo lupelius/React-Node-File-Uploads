@@ -1,12 +1,31 @@
 README template
 # Serdar - 28 July 2019
 ## Installation
-// All the instructions to run the application
-1- ...
+
+I'll write docker instructions but they're both hanging in my local machine, worth a try:
+1- Open a new terminal tab
+2- cd to dir-root/docker-node
+3- Run docker-compose up
+4- Check localhost:8000 to make sure it's running, if it is hurray!
+6- Open a new terminal tab
+7- cd to dir-root/docker-react
+8- Run this to build the image: docker image build -t react:app .
+9- Run hot reloading instance by typing: docker container run -it -p 3000:3000 -p 35729:35729 -v $(pwd):/app react2:app
+10- Go to localhost:3000 on your browser to start interacting with the backend, now it's /tmp of your docker instance so knock yourself out by deleting/adding whatever file you like.
+
+Dockerless instructions:
+1- Open a new terminal tab
+2- cd to dir-root/docker-node
+3- npm i * (Also before running install, pm2 is going to be installed none globally perhaps you may want to delete pm2 from package.json dependencies and install it globally by running (npm i -g pm2) instead.)
+4- sudo pm2-runtime server.js (mind you you will see your /tmp files on mac or linux, don't delete anything you haven't added, sorry I'll make tmp folder editable in a future release. Should work sudoless in docker mode.)
+5- Go to localhost:8000 in your browser to see the deceiving "Docker node working" message
+6- Open a new terminal tab
+7- cd to dir-root/docker-react
+8- npm i
+9- npm start
+10- Go to localhost:3000 on your browser to start interacting with the backend, remember only delete files you uploaded in this mode not to mess with your OS, just in case.
+
 ## Security
-// List security concerns:
-// - that have been addressed
-// - that have *not* been addressed
 ###Three most common attack vectors are:
 
 ####Parameters:
@@ -48,7 +67,6 @@ replay legitimate transactions.
 
 
 ## Improvements
-// What could be added to the app / API?
 1- Pagination, ideally load more as you scroll
 2- Listing of files sorted by size, filename (alphanumerically), sort by date of upload
 3- Edit file (upload a different binary for the same name)
@@ -73,7 +91,6 @@ replay legitimate transactions.
 22- Need to break down large components more into pure/memoized functions within view files, did not have time to do this, paired with lacking TDD, if I did this properly I would not have a backend to query
 
 ## Libraries
-// What external libraries have you used and why?
 ###Frontend:
 1- flow-bin: type checking and type safety
 2- material-ui-core: for a very pretty textfield and pretty Grid system
@@ -91,8 +108,6 @@ eslint: to have some sort of structure to my syntax
 eslint-plugin-security: help identify potential security hotspots as I develop the apis
 
 ## API
-// Any general observation about the API?
-// document each endpoint using the following template:
 ```
 ### GET /resources
 // Description of the endpoint:
@@ -158,5 +173,4 @@ No querystring or path params accepted.
 
 ---
 ## Other notes
-// Anything else you want to mention
-Tough exercise, well thought out, did get me to sweat nicely. Biggest issue was not using redux
+Biggest issue was not using redux.
