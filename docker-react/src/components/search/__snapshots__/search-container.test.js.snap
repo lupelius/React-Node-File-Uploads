@@ -1,5 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component matches snapshot 1`] = `
+<div
+  className="Search"
+>
+  <div
+    className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+    style={
+      Object {
+        "padding": 24,
+      }
+    }
+  >
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+      onClick={[Function]}
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInputBase-input MuiInput-input"
+        disabled={false}
+        id="searchInput"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Search for Files"
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component matches snapshot 2`] = `
+<div
+  className="Search"
+>
+  <div
+    className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+    style={
+      Object {
+        "padding": 24,
+      }
+    }
+  >
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+      onClick={[Function]}
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInputBase-input MuiInput-input"
+        disabled={false}
+        id="searchInput"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Search for Files"
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component matches snapshot 3`] = `
+<div
+  className="Search"
+>
+  <div
+    className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+    style={
+      Object {
+        "padding": 24,
+      }
+    }
+  >
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+      onClick={[Function]}
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInputBase-input MuiInput-input"
+        disabled={false}
+        id="searchInput"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Search for Files"
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Component that fires onChange event, and matches snapshot 1`] = `
 <div
   className="Search"

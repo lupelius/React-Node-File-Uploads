@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropzone matches snapshot 1`] = `
+<div
+  className="Dropzone"
+  onClick={[Function]}
+  onDragLeave={[Function]}
+  onDragOver={[Function]}
+  onDrop={[Function]}
+  style={
+    Object {
+      "cursor": "default",
+    }
+  }
+>
+  <img
+    alt="upload"
+    className="Icon"
+    src="upload.svg"
+  />
+  <input
+    className="FileInput"
+    multiple={true}
+    onChange={[Function]}
+    type="file"
+  />
+  <span>
+    Drop
+  </span>
+</div>
+`;

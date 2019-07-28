@@ -3,7 +3,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import renderer from 'react-test-renderer';
 
-test('Component that fires onChange event, and matches snapshot', () => {
+test('Component matches snapshot', () => {
   const handleFilter = event => {};
   const component = renderer.create(
     <div className="Search">
