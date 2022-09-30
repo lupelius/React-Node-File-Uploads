@@ -9,7 +9,7 @@
   "author": "Serdar Senay <serdar@tokentalk.co>",
   "license": "ISC",
   "dependencies": {
-    "@hapi/joi": "^15.0.3",
+    "@hapi/joi": "^15.1.1",
     "@types/hapi__joi": "^15.0.3",
     "content-type": "^1.0.4",
     "cors": "^2.8.5",
